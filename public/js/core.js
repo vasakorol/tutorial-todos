@@ -1,0 +1,1 @@
+var appTodos = angular.module('todosApp', ['ngRoute', 'oitozero.ngSweetAlert']);

@@ -1,0 +1,24 @@
+{
+  "name": "todos",
+  "version": "0.0.1",
+  "homepage": "",
+  "authors": [
+    "VasKo"
+  ],
+  "description": "Todos Application",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "bower_components"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.7",
+    "font-awesome": "~4.7.0",
+    "jquery": "~2.0",
+    "angular": "~1.5.9",
+    "angular-route": "~1.5.9",
+    "ngSweetAlert": "angular-sweetalert#^1.1.2"
+  }
+}

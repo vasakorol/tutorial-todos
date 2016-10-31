@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todosApp">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <title ng-bind="title"></title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/ngSweetAlert/SweetAlert.min.js"></script>
+    <script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+
+    <script src="js/core.js"></script>
+
+    <script src="js/services.min.js"></script>
+    <script src="js/controllers.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Todos</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="/about"><i class="fa fa-shield"></i> About</a></li>
+                    <li><a href="/contact"><i class="fa fa-comment"></i> Contact</a></li>
+                    <li><a href="/registration"><i class="fa fa-comment"></i> Registration</a></li>
+                    <li><a href="/login"><i class="fa fa-comment"></i> Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container" ng-view></div>
+
+    <footer>
+        <div class="container">
+            Some Footer
+        </div>
+    </footer>
+</body>
+</html>
