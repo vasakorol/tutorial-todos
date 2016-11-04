@@ -81,6 +81,32 @@ function users_postItem()
             print_r("Empty data for insert\n");
             die;
         }
+        $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+        $filters = [];
+        if (isset($data['email']) && !empty($data['email'])) {
+            $filters = [
+                'email' => $data['email']
+            ];
+        }
+        $query = new MongoDB\Driver\Query($filters);
+        $res = $manager->executeQuery('todos.users', $query);
+        $users = array();
+        foreach ($res as $row) {
+            $item = new stdClass();
+            foreach ($row as $key => $value) {
+                if ($key == '_id') {
+                    $value = (string)$value;
+                }
+                $item->$key = $value;
+            }
+            $users[] = $item;
+        }
+        if(!empty($users)) {
+            return [
+                'result' => false,
+                'message' => 'Account with same e-mail already exists.'
+            ];
+        }
         $newItem = [
             '_id' => new MongoDB\BSON\ObjectID(),
             'email' => $data['email'],
@@ -88,7 +114,7 @@ function users_postItem()
             'userRole' => 'user',
             'createAt' => date('Y-m-d H:i:s')
         ];
-        $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+
         $bulk = new MongoDB\Driver\BulkWrite;
         $bulk->insert($newItem);
         $manager->executeBulkWrite('todos.users', $bulk);

@@ -15,7 +15,6 @@ appTodos.controller('registrationController', function ($scope, $location, Users
                     SweetAlert.swal("User with same E-mail already exists", "", "error");
                 }
             });
-
         }
     };
 

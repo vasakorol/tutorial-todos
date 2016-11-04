@@ -1,5 +1,4 @@
 appTodos.factory('Users', function ($http) {
-    console.log('services');
     var get = function ($_id, $filter) {
         var $url = 'http://api.tutorials.loc/api/users.php';
         if(typeof $_id != 'undefined' && $_id != null) {
@@ -10,7 +9,8 @@ appTodos.factory('Users', function ($http) {
         } else if(typeof $filter != 'undefined' && $filter.length > 0) {
             $url = $url + '?' + $filter;
         }
-        return $http.get($url)
+        return $http
+            .get($url)
             .then(
                 function (response) {
                     return response.data;
@@ -29,7 +29,7 @@ appTodos.factory('Users', function ($http) {
                 },
                 function(response){
                     console.log('Error: ');
-                    console.log(response);
+                    console.log(response.data);
                     return response;
                 }
             );
@@ -53,10 +53,24 @@ appTodos.factory('Users', function ($http) {
                 }
             );
     };
+    var login = function(user) {
+        return $http.post('http://api.tutorials.loc/api/login.php', user)
+            .then(
+                function(response){
+                    return response.data;
+                },
+                function(response){
+                    console.log('Error: ');
+                    console.log(response);
+                    return response;
+                }
+            );
+    };
     return {
         get: get,
         post: post,
         put: put,
-        remove: remove
+        remove: remove,
+        login: login
     }
 });
