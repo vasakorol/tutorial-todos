@@ -27,6 +27,9 @@ function users_getAll()
                 if ($key == '_id') {
                     $value = (string)$value;
                 }
+                if($key == 'password') {
+                    continue;
+                }
                 $item->$key = $value;
             }
             $users[] = $item;
@@ -57,6 +60,9 @@ function users_getOne($id)
             foreach ($row as $key => $value) {
                 if ($key == '_id') {
                     $value = (string)$value;
+                }
+                if($key == 'password') {
+                    continue;
                 }
                 $item->$key = $value;
             }
@@ -136,7 +142,6 @@ function users_putItems($id)
         if (empty($data)) {
             return array('result' => 'Empty data for update');
         }
-        print_r($data);
         $user = users_getOne($id);
         if (empty($user)) {
             return array('result' => 'Current Id is not correct');
@@ -157,6 +162,11 @@ function users_putItems($id)
             $update['userRole'] = $data['userRole'];
         } else {
             $update['userRole'] = $user->userRole;
+        }
+        if (isset($data['lastLogin']) && !empty($data['lastLogin'])) {
+            $update['lastLogin'] = $data['lastLogin'];
+        } else {
+            $update['lastLogin'] = $user->lastLogin;
         }
         if (isset($data['createAt']) && !empty($data['createAt'])) {
             $update['createAt'] = $data['createAt'];

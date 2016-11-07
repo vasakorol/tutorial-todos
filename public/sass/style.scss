@@ -11,3 +11,26 @@ footer {
 .cursor-pointer {
   cursor: pointer;
 }
+.btn-not-btn {
+  border: 0 none;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  &:hover,
+  &:active,
+  &:focus,
+  &:hover:active:focus {
+    border: 0 none;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+  }
+}
+.btn-group.open {
+  .btn-not-btn.dropdown-toggle {
+    border: 0 none;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+  }
+}

@@ -34,8 +34,18 @@ appTodos.factory('Users', function ($http) {
                 }
             );
     };
-    var put = function(){
-
+    var put = function($_id, $user){
+        return $http.put('http://api.tutorials.loc/api/users.php?_id=' + $_id, $user)
+            .then(
+                function(response){
+                    return response.data;
+                },
+                function(response){
+                    console.log('Error: ');
+                    console.log(response.data);
+                    return response;
+                }
+            );
     };
     var remove = function($_id) {
         var $url = 'http://api.tutorials.loc/api/users.php';

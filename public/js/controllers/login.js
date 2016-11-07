@@ -20,9 +20,6 @@ appTodos.controller('loginController', function ($rootScope, $scope, $location, 
 
     $scope.reset = function (form) {
         if (form) {
-            Users.get().then(function (data) {
-                $scope.users = data;
-            });
             form.$setPristine();
             form.$setUntouched();
         }

@@ -4,7 +4,7 @@
     <div class="col-md-4">
         <form ng-submit="register()" name="registerForm" class="my-form form-group" novalidate>
             <div class="form-group">
-                <input type="email" name="email" ng-model="user.email" class="form-control" placeholder="E-mail" required/>
+                <input type="email" name="email" value="{{user.email}}" ng-model="user.email" class="form-control" placeholder="E-mail" required/>
                 <div ng-show="registerForm.$submitted || registerForm.email.$touched">
                     <p ng-show="registerForm.email.$error.required">Field E-mail is required.</p>
                     <p ng-show="registerForm.email.$error.email">E-mail value is not correct.</p>

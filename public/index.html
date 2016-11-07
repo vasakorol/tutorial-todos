@@ -7,21 +7,23 @@
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css"/>
+    <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css"/>
+    <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog.min.css"/>
+    <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog-theme-default.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
 
-    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/ngSweetAlert/SweetAlert.min.js"></script>
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/ng-dialog/js/ngDialog.min.js"></script>
     <script src="bower_components/ngstorage/ngStorage.min.js"></script>
 
-    <script src="bower_components/ngSweetAlert/SweetAlert.min.js"></script>
-    <script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
-
     <script src="js/core.js"></script>
-
     <script src="js/services.min.js"></script>
-
     <script src="js/controllers.min.js"></script>
 
 </head>
@@ -35,6 +37,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
                     <li ng-show="checkIfVisible('users')"><a href="/users"><i class="fa fa-users"></i> Users</a></li>
+                    <li ng-show="checkIfVisible('todos')"><a href="/todos"><i class="fa fa-list"></i> Todos</a></li>
                     <li ng-show="checkIfVisible('about')"><a href="/about"><i class="fa fa-shield"></i> About</a></li>
                     <li ng-show="checkIfVisible('contact')"><a href="/contact"><i class="fa fa-comment"></i> Contact</a></li>
                     <li ng-show="checkIfVisible('registration')"><a href="/registration"><i class="fa fa-comment"></i> Registration</a></li>
@@ -52,5 +55,6 @@
             Some Footer
         </div>
     </footer>
+    <div class="modal-parent"></div>
 </body>
 </html>
